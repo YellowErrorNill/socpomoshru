@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<p>Содержимое страницы "о сайте"</p>
+
+<div class="col-md-6">
+   <div class="contact">
+         <div class="container">
+            <div class="row ">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center">
+                     <h2>Регистрация</h2>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <form action="/register" method="post" id="request" class="main_form">
+                     <div class="row">
+                        <div class="col-md-6 ">
+                           <input class="contactus" placeholder="Name*" type="type" name="name">
+                        </div>
+
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email*" type="type" name="email">
+                        </div>
+                        <div class="col-md-6">
+                           <input class="contactus" placeholder="Пароль" type="password" name="psw">
+                        </div>
+                        <div class="col-md-6">
+                           <input class="contactus" placeholder="Павторить пароль" type="password" name="psw2">
+                        </div>
+                        <div class="col-md-12 select-outline">
+                        </div>
+                        <div class="col-md-12">
+                            <p><input type="submit" value="Регистрация" />
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
