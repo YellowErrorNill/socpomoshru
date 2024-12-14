@@ -3,13 +3,20 @@
     <head>
         <link type="text/css" href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
         <title>{{title}}</title>
+        <link rel="shortcut icon" href="/static/images/fawicon.png"/>
     </head>
     <body>
+
         {% block main -%}
             {%- block mainmenu -%}
                 <ul class="mainmenu">
+                    <img
+                    src="/static/images/image2.png"
+                    width="196"
+                    height="106"
+                    />
                     {% for p in menu %}
-                    <li><a href="{{p.url}}" id="a-text">{{p.title}}</a></li>
+                    <li><a href="{{p.url}}" class="nav-link">{{p.title}}</a></li>
                     {% endfor %}
                 </ul>
             {% endblock mainmenu -%}

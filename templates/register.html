@@ -2,44 +2,18 @@
 
 {% block content %}
 {{ super() }}
-<p>Содержимое страницы "о сайте"</p>
-
-<div class="col-md-6">
-   <div class="contact">
-         <div class="container">
-            <div class="row ">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Регистрация</h2>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <form action="/register" method="post" id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-6 ">
-                           <input class="contactus" placeholder="Name*" type="type" name="name">
-                        </div>
-
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Email*" type="type" name="email">
-                        </div>
-                        <div class="col-md-6">
-                           <input class="contactus" placeholder="Пароль" type="password" name="psw">
-                        </div>
-                        <div class="col-md-6">
-                           <input class="contactus" placeholder="Павторить пароль" type="password" name="psw2">
-                        </div>
-                        <div class="col-md-12 select-outline">
-                        </div>
-                        <div class="col-md-12">
-                            <p><input type="submit" value="Регистрация" />
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<div class="text-col">
+<form action="/register" method="post" class="form-contact">
+<p><input type="submit" value="Регистрация в" />
+<p><label>ФИО: </label> <input type="text" name="name" value="" required />
+<p><label>Email: </label> <input type="text" name="email" value="" required />
+<p><label>Пароль: </label> <input type="password" name="psw" value="" required />
+<p><label>Повтор пароля: </label> <input type="password" name="psw2" value="" required />
+<p><input type="submit" id = "regig" value=" Регистрация" />
+<p><input type="submit" value="вход через госуслуги" />
+</form>
 </div>
 {% endblock %}

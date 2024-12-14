@@ -1,36 +1,15 @@
 {% extends 'base.html' %}
+
 {% block content %}
 {{ super() }}
- <div class="contact">
-         <div class="container">
-            <div class="row ">
-               <div class="col-md-12">
-                  <div class="titlepage text_align_center">
-                     <h2>Добавление статьи</h2>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <form action="/addPost" method="post" id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-6 ">
-                           <input class="contactus" placeholder="Название статьи: " type="type" name="name">
-                        </div>
-
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Url статьи:" type="type" name="url">
-                        </div>
-
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Текст сообщение " type="type" Message="Name" name="post" ></textarea>
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Отправить</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-
-            </div>
-         </div>
-      </div>
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<div class="text-col">
+<form action="{{url_for('about')}}" method="post" class="form-contact">
+<p><label>Текст сообщение:</label>
+<p><textarea name="post" rows=7 cols=40></textarea>
+<p><input type="submit" value="Добавить" />
+</form>
+</div>
 {% endblock %}
